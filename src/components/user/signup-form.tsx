@@ -14,6 +14,7 @@ import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Loader2 } from 'lucide-react';
+import { useState } from 'react';
 
 const signupSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
