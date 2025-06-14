@@ -13,6 +13,7 @@ import { useAuth } from '@/contexts/auth-context';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
+import { useState } from 'react';
 
 const loginSchema = z.object({
   email: z.string().email("Invalid email address"),
