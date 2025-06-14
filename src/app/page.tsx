@@ -11,7 +11,7 @@ export default function HomePage() {
     <div className="space-y-16">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-primary/10 via-background to-background py-16 md:py-24 rounded-lg shadow-sm overflow-hidden">
-        <div className="container mx-auto text-center">
+        <div className="w-full flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-headline">
             Welcome to <span className="text-primary">Indiazon</span>
           </h1>

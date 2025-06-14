@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useEffect, useState }dart';
+import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import { getProductById, products as allProducts } from '@/lib/data';
