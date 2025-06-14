@@ -136,6 +136,82 @@ export const products: Product[] = [
     slug: 'womens-performance-running-shoes',
     dataAiHint: 'shoes sneakers',
   },
+  {
+    id: '9',
+    name: 'UltraBook Laptop',
+    description: 'Sleek and powerful UltraBook for productivity and entertainment. Lightweight design with a stunning display.',
+    price: 1299.99,
+    originalPrice: 1499.99,
+    images: ['https://placehold.co/600x400.png'],
+    category: categories[0], // Electronics
+    brand: 'InnovatePC',
+    stock: 25,
+    rating: 4.7,
+    reviews: sampleReviews.slice(0, 2),
+    attributes: { Processor: 'Intel Core i7', RAM: '16GB', Storage: '512GB SSD', OS: 'Windows 11' },
+    slug: 'ultrabook-laptop',
+    dataAiHint: 'laptop computer',
+  },
+  {
+    id: '10',
+    name: 'Smartwatch Series 7',
+    description: 'Stay connected and track your fitness with the latest Smartwatch. Features GPS, heart rate monitor, and a vibrant display.',
+    price: 349.00,
+    images: ['https://placehold.co/400x400.png'],
+    category: categories[0], // Electronics
+    brand: 'ConnectTech',
+    stock: 80,
+    rating: 4.6,
+    reviews: sampleReviews.slice(1, 3),
+    attributes: { Color: 'Midnight Blue', Display: 'AMOLED', WaterResistance: '50m' },
+    slug: 'smartwatch-series-7',
+    dataAiHint: 'smartwatch wearable',
+  },
+  {
+    id: '11',
+    name: 'Power Blender Pro',
+    description: 'High-performance blender for smoothies, soups, and more. Features a powerful motor and durable blades.',
+    price: 89.99,
+    images: ['https://placehold.co/500x500.png'],
+    category: categories[3], // Home & Kitchen
+    brand: 'KitchenMaster',
+    stock: 60,
+    rating: 4.4,
+    reviews: sampleReviews.slice(0,1),
+    attributes: { Wattage: '1200W', Capacity: '1.5L', Color: 'Silver' },
+    slug: 'power-blender-pro',
+    dataAiHint: 'blender kitchen appliance',
+  },
+  {
+    id: '12',
+    name: 'The Silent Witness - Mystery Novel',
+    description: 'A gripping mystery novel that will keep you on the edge of your seat until the very last page.',
+    price: 12.50,
+    images: ['https://placehold.co/400x600.png'],
+    category: categories[1], // Books
+    brand: 'MysteryHouse Books',
+    stock: 150,
+    rating: 4.5,
+    reviews: sampleReviews.slice(1,2),
+    attributes: { Author: 'A. N. Author', Genre: 'Mystery, Thriller' },
+    slug: 'the-silent-witness-mystery-novel',
+    dataAiHint: 'mystery book',
+  },
+  {
+    id: '13',
+    name: 'Elegant Summer Dress',
+    description: 'Light and airy summer dress, perfect for warm days and evenings. Made from breathable linen.',
+    price: 59.95,
+    images: ['https://placehold.co/600x800.png'],
+    category: categories[2], // Clothing
+    brand: 'ChicWear',
+    stock: 70,
+    rating: 4.3,
+    reviews: sampleReviews,
+    attributes: { Color: 'Floral Print', Material: 'Linen Blend', Size: 'S, M, L' },
+    slug: 'elegant-summer-dress',
+    dataAiHint: 'dress fashion',
+  },
 ];
 
 export const getProductById = (id: string): Product | undefined => products.find(p => p.id === id);
@@ -184,3 +260,6 @@ export const mockOrders: Order[] = [
 ];
 
 export const featuredProducts = products.slice(0, 4);
+
+
+    
