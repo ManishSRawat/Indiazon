@@ -10,15 +10,15 @@ import { ShoppingCart, Menu } from 'lucide-react';
 import { useCart } from '@/contexts/cart-context';
 import { Badge } from '@/components/ui/badge';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { NavItem } from '@/lib/types';
+import type { NavItem } from '@/lib/types';
 import { useState } from 'react';
+import { categories } from '@/lib/data'; // Import categories
 
-const navItems: NavItem[] = [
-  { title: 'Electronics', href: '/products?category=electronics' },
-  { title: 'Books', href: '/products?category=books' },
-  { title: 'Clothing', href: '/products?category=clothing' },
-  { title: 'Home & Kitchen', href: '/products?category=home-kitchen' },
-];
+// Transform categories from data.ts into NavItem structure
+const dynamicNavItems: NavItem[] = categories.map(category => ({
+  title: category.name,
+  href: `/products?category=${category.slug}`,
+}));
 
 
 const Header = () => {
@@ -37,7 +37,7 @@ const Header = () => {
         </div>
         
         <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
-          {navItems.slice(0,2).map((item) => ( // Show fewer items on smaller screens
+          {dynamicNavItems.slice(0,2).map((item) => ( // Show first 2 categories from dynamic list
             <Link
               key={item.title}
               href={item.href}
@@ -73,7 +73,7 @@ const Header = () => {
                 <div className="px-4 mb-4">
                    <SearchBar />
                 </div>
-                  {navItems.map((item) => (
+                  {dynamicNavItems.map((item) => ( // Use full dynamic list for mobile menu
                     <Link
                       key={item.title}
                       href={item.href}
