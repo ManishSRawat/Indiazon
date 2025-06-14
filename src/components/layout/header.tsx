@@ -6,13 +6,19 @@ import Logo from '@/components/common/logo';
 import SearchBar from '@/components/common/search-bar';
 import UserProfileIcon from '@/components/user/user-profile-icon';
 import { Button } from '@/components/ui/button';
-import { ShoppingCart, Menu } from 'lucide-react';
+import { ShoppingCart, Menu, ChevronDown } from 'lucide-react';
 import { useCart } from '@/contexts/cart-context';
 import { Badge } from '@/components/ui/badge';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import type { NavItem } from '@/lib/types';
 import { useState } from 'react';
 import { categories } from '@/lib/data'; // Import categories
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 // Transform categories from data.ts into NavItem structure
 const dynamicNavItems: NavItem[] = categories.map(category => ({
@@ -37,15 +43,22 @@ const Header = () => {
         </div>
         
         <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
-          {dynamicNavItems.slice(0,2).map((item) => ( // Show first 2 categories from dynamic list
-            <Link
-              key={item.title}
-              href={item.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-            >
-              {item.title}
-            </Link>
-          ))}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+                Categories <ChevronDown className="ml-1 h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start">
+              {dynamicNavItems.map((item) => (
+                <DropdownMenuItem key={item.title} asChild>
+                  <Link href={item.href}>
+                    {item.title}
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </nav>
 
         <div className="flex items-center gap-3">
