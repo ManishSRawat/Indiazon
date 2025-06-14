@@ -5,7 +5,7 @@ import { useAuth } from '@/contexts/auth-context';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
@@ -15,6 +15,7 @@ import PaymentMethodsList from '@/components/user/payment-methods-list'; // Rena
 import { User, Settings, ShoppingBag, MapPin, CreditCard, LogOut } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 
+import { Suspense } from 'react';
 export default function AccountPage() {
   const { user, logout, isLoading: authLoading } = useAuth();
   const router = useRouter();
@@ -75,6 +76,7 @@ export default function AccountPage() {
     );
   }
 
+
   return (
     <div className="container mx-auto py-12">
       <div className="mb-8">
@@ -82,6 +84,7 @@ export default function AccountPage() {
         <p className="text-muted-foreground">Manage your profile, orders, and settings.</p>
       </div>
 
+      <Suspense fallback={<div>Loading account details...</div>}>
       <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
         <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 mb-6">
           <TabsTrigger value="profile" className="flex items-center gap-2"><Settings className="h-4 w-4" />Profile</TabsTrigger>
@@ -135,6 +138,7 @@ export default function AccountPage() {
         {/* Logout is handled by the trigger, no content needed for this tab */}
         <TabsContent value="logout"></TabsContent> 
       </Tabs>
+      </Suspense>
     </div>
   );
 }
