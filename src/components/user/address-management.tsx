@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from 'react';
-import { defaultAddress } from '@/lib/data';
+// import { defaultAddress } from '@/lib/data'; // Removed default import
 import type { Address } from '@/lib/types';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -12,7 +12,7 @@ import { PlusCircle, Edit2, Trash2, Home } from 'lucide-react';
 
 const AddressManagement = () => {
   // In a real app, fetch addresses for the logged-in user
-  const [addresses, setAddresses] = useState<Address[]>([defaultAddress]);
+  const [addresses, setAddresses] = useState<Address[]>([]); // Initialize with empty array
   const [editingAddress, setEditingAddress] = useState<Address | null>(null); // For a modal/form
 
   const handleSetDefault = (addressId: string) => {

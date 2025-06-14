@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from 'react';
-import { defaultPaymentMethod } from '@/lib/data';
+// import { defaultPaymentMethod } from '@/lib/data'; // Removed default import
 import type { PaymentMethod } from '@/lib/types';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -11,7 +11,7 @@ import { PlusCircle, Edit2, Trash2, CreditCard, CheckCircle } from 'lucide-react
 
 const PaymentMethodsList = () => {
   // In a real app, fetch payment methods for the logged-in user
-  const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([defaultPaymentMethod]);
+  const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]); // Initialize with empty array
   const [editingPaymentMethod, setEditingPaymentMethod] = useState<PaymentMethod | null>(null);
 
   const handleSetDefault = (paymentMethodId: string) => {

@@ -1,17 +1,24 @@
 
 "use client";
 
-import { mockOrders } from '@/lib/data';
+// import { mockOrders } from '@/lib/data'; // Removed mock import
 import type { Order } from '@/lib/types';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { useState, useEffect } from 'react'; // Added useState and useEffect
 
 const OrderHistory = () => {
   // In a real app, fetch orders for the logged-in user
-  const orders: Order[] = mockOrders;
+  const [orders, setOrders] = useState<Order[]>([]); // Initialize with empty array
+
+  // Placeholder for fetching user-specific orders - this would typically be in a useEffect hook
+  // useEffect(() => {
+  //   // fetchUserOrders().then(setOrders);
+  // }, []);
+
 
   if (orders.length === 0) {
     return (
