@@ -6,8 +6,7 @@ Indiazon is a modern e-commerce starter project built with **Next.js** and seaml
 
 ✨ **Experience the Live Demo:** ✨
 
-Check out the live version of Indiazon here: [https://your-indiazon-url.vercel.app/](https://your-indiazon-url.vercel.app/)
-
+Check out the live version of Indiazon here: [https://your-indiazon-url.vercel.app
 ## Features
 
 *   **Product Listing and Detail Pages:** Display products with images, descriptions, and pricing. View detailed information for individual products.
